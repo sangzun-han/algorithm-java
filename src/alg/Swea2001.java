@@ -2,7 +2,7 @@ package alg;
 
 import java.util.Scanner;
 
-public class Solution2001 {
+public class Swea2001 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);

@@ -2,7 +2,7 @@ package alg;
 
 import java.util.Scanner;
 
-public class Solution1961 {
+public class Swea1961 {
 	public static int[][] rotate(int matrix[][], int n) {
 		int[][] new_matrix = new int[n][n];
 		
