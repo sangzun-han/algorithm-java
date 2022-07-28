@@ -26,8 +26,7 @@ public class Boj1339 {
 			char[] input = words[i].toCharArray();	
 			int pos = 0;
 			for(int j=input.length-1; j>=0; j--) {
-				alpha[input[j] - 'A'] += (int)Math.pow(10,pos++);
-				
+				alpha[input[j] - 'A'] += (int)Math.pow(10,pos++);	
 			}
 		}
 		Arrays.sort(alpha, Collections.reverseOrder());
