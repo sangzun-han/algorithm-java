@@ -34,7 +34,7 @@ public class Boj11000 {
 			}
 		});
 	
-		
+	
 //		int count = 1;
 //		int temp = 0;
 //		for(int i=1; i<n; i++) {
