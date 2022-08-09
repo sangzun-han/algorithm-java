@@ -14,6 +14,7 @@ public class Swea9229_backtracking {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
+		StringBuilder sb = new StringBuilder();
 		int t = Integer.parseInt(br.readLine());
 		for(int tc=0; tc<t; tc++) {
 			st = new StringTokenizer(br.readLine());
@@ -28,9 +29,9 @@ public class Swea9229_backtracking {
 				weight[i] = Integer.parseInt(st.nextToken());
 			} 
 			backtracking(0,0,0);
-			
-			System.out.println("#" + (tc+1)+" "+max);
+			sb.append("#").append(tc+1).append(" ").append(max+"\n");
 		}
+		System.out.print(sb);
 	}
 
 	private static void backtracking(int index, int cnt, int sum) {
