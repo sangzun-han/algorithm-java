@@ -1,67 +1,71 @@
 package BaekJoon;
 
-import java.util.LinkedList;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 
 public class Boj1260 {
-	static int n;
-	static int m;
-	static int v;
+	static int N;
+	static int M;
+	static int V;
 	static int[][] dfs_graph;
 	static boolean[] dfs_visited;
 	static int[][] bfs_graph;
 	static boolean[] bfs_visited;
-	
-	public static void dfs(int v) {
-		dfs_visited[v] = true;
-		System.out.print(v + " ");
-		for(int i=1; i<=n; i++) {
-			if (dfs_visited[i] == false && dfs_graph[v][i] == 1) {
-				dfs(i);
-			}
-		}
-	}
-	
-	public static void bfs(int v) {
-		Queue<Integer> queue = new LinkedList<Integer>();
-		queue.offer(v);
-		bfs_visited[v] = true;
-		System.out.print(v+ " ");
-		
-		while(!queue.isEmpty()) {
-			int temp = queue.poll();		
-			for(int i=1; i<=n; i++) {
-				if(bfs_visited[i] == false && bfs_graph[temp][i] == 1) {
-					queue.offer(i);
-					bfs_visited[i] = true;
-					System.out.print(i + " ");
-				}
-			}
-		}
-	}
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		n = sc.nextInt();
-		m = sc.nextInt();
-		v = sc.nextInt();
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		V = Integer.parseInt(st.nextToken());
 		dfs_graph = new int[1001][1001];
 		dfs_visited = new boolean[1001];
 		bfs_graph = new int[1001][1001];
 		bfs_visited = new boolean[1001];
-		for(int i=0; i<m; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			dfs_graph[a][b] = 1;
-			dfs_graph[b][a] = 1;
-			bfs_graph[a][b] = 1;
-			bfs_graph[b][a] = 1;
+		
+		for(int i=0; i<M; i++) {
+			st = new StringTokenizer(br.readLine());
+			int x =  Integer.parseInt(st.nextToken());
+			int y =  Integer.parseInt(st.nextToken());
+			dfs_graph[x][y] = dfs_graph[y][x] = 1;
+			bfs_graph[x][y] = bfs_graph[y][x] = 1;
 		}
-		dfs(v);
+		
+		
+		dfs(V);
 		System.out.println();
-		bfs(v);
-		sc.close();
+		bfs(V);
+	}
+
+	private static void bfs(int v) {
+		Queue<Integer> queue = new ArrayDeque<>();
+		bfs_visited[v] = true;
+		queue.offer(v);
+		System.out.print(v+" ");
+		while(!queue.isEmpty()) {
+			int temp = queue.poll();
+			for(int i=1; i<=N; i++) {
+				if(!bfs_visited[i] && bfs_graph[temp][i] == 1) {
+					queue.offer(i);
+					bfs_visited[i] = true;
+					System.out.print(i+" ");
+				}
+				
+			}
+		}
+	}
+
+	private static void dfs(int v) {
+		dfs_visited[v] = true;
+		System.out.print(v+" ");
+		for(int i=1; i<=N; i++) {
+			if(!dfs_visited[i] && dfs_graph[v][i] == 1) {
+				dfs(i);
+			}
+		}
+		
 	}
 }
