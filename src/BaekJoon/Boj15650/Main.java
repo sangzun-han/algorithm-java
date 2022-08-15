@@ -1,33 +1,33 @@
-package BaekJoon.Boj15649;
+package BaekJoon.Boj15650;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-	static int N, M;
-	static int[] nums, ans;
+	static int N,M;
+	static int[] nums;
+	static int[] ans;
 	static boolean[] isSelected;
 	static StringBuilder sb = new StringBuilder();
-
-	public static void main(String[] args) throws Exception {
+	
+	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
-		nums = new int[N];
-		ans = new int[M];
+		nums = new int[N];	
 		isSelected = new boolean[N];
-		for (int i = 0; i < N; i++) {
-			nums[i] = i + 1;
+		ans = new int[M];
+		
+		for(int i=0; i<N; i++) {
+			nums[i] = i+1;
 		}
-
+		
 		comb(0,0);
-		System.out.print(sb);
+		System.out.println(sb);
 	}
-
+	
 	private static void comb(int cnt,int start) {
 		if (cnt == M) {
 			for(int i=0; i<M; i++) {
@@ -37,14 +37,11 @@ public class Main {
 			return;
 		}
 
-		for (int i = 0; i < N; i++) {
-			if(isSelected[i]) continue;
-			isSelected[i] = true;
+		for (int i = start; i < N; i++) {	
 			ans[cnt] = nums[i];
-			comb(cnt + 1,start+1);
-			isSelected[i] = false;
+			comb(cnt + 1,i+1);
+
 		}
 
 	}
-
 }
