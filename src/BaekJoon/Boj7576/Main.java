@@ -31,6 +31,12 @@ public class Main {
 			}
 		}
 		System.out.println(bfs());
+//		for(int i=0; i<N; i++) {
+//			for(int j=0; j<M; j++) {
+//				System.out.print(map[i][j]+" ");
+//			}
+//			System.out.println();
+//		}
 		
 	}
 	
