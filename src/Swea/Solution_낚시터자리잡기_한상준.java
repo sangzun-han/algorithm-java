@@ -93,6 +93,7 @@ public class Solution_낚시터자리잡기_한상준 {
 				copy[gate + distance] = gate;
 				dfs(cnt + 1, method, copy);
 			}
+			
 		}
 	}
 
