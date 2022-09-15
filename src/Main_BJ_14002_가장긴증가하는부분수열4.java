@@ -24,7 +24,7 @@ public class Main_BJ_14002_가장긴증가하는부분수열4 {
 		for(int i=0; i<N; i++) {
 			D[i] = 1;
 			T[i] = -1;
-			for(int j=0; j<N; j++) {
+			for(int j=0; j<i; j++) {
 				if(A[j] < A[i] && D[i] < D[j]+1) {
 					D[i] = D[j]+1;
 					T[i] = j;
