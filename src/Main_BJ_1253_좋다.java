@@ -47,5 +47,4 @@ public class Main_BJ_1253_좋다 {
 		}
 		System.out.println(ans);
 	}
-
 }

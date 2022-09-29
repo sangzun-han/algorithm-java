@@ -52,6 +52,12 @@ public class Main_BJ_16973_직사각형탈출 {
 		}
 		
 		bfs(Sr,Sc);
+		for(int i=1; i<=N; i++) {
+			for(int j=1; j<=M; j++) {
+				System.out.print(dp[i][j]+" ");
+			}
+			System.out.println();
+		}
 	}
 	
 	private static void bfs(int x, int y) {
@@ -75,21 +81,15 @@ public class Main_BJ_16973_직사각형탈출 {
 								queue.offer(new Point(nx, ny));
 								dp[nx][ny] = dp[p.x][p.y]+1;
 							}
-					
 					}
 				}
 			}
-		}
-		for(int i=1; i<=N; i++) {
-			for(int j=1; j<=M; j++) {
-				System.out.print(dp[i][j]+" ");
-			}
-			System.out.println();
 		}
 		System.out.println(dp[Fr][Fc]);
 	}
 
 	private static int sum(int x1, int y1, int x2, int y2) {
 		return s[x2][y2] - s[x1-1][y2] - s[x2][y1-1] + s[x1-1][y1-1];
+		
 	}	
 }
