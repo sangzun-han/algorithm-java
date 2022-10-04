@@ -21,23 +21,26 @@ public class Main_BJ_2003_수들의합2 {
 		int sum = nums[0];
 		int ans = 0;
 		
+		
+		
 		while(left <= right && right < N) {
-			if(sum < M) {
-				right +=1;
-				sum += nums[right];
-			} else if (sum == M) {
-				ans += 1;
-				right += 1;
-				sum += nums[right];
-			} else if(sum > M) {
-				sum -= nums[left];
-				left+=1;
-				if(left > right && left < N) {
+			if(sum > M) {
+				sum -=nums[left];
+				left++;
+
+				if(left > right) {
 					right = left;
-					sum = nums[left];
+					sum = nums[right];
 				}
+			} else if (sum==M) {
+				ans++;
+				right++;
+				sum += nums[right];
+			} else if (sum < M) {
+				right++;
+				sum += nums[right];
 			}
 		}
 		System.out.println(ans);
-	}
+	}		
 }
