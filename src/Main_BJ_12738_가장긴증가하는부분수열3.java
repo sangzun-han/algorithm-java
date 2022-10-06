@@ -1,30 +1,36 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_Bj_2003_N2 {
+public class Main_BJ_12738_가장긴증가하는부분수열3 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringTokenizer st;
 		
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken()); // 찾아야되는 숫자
+		int N = Integer.parseInt(br.readLine());
 		int[] nums = new int[N];
+		int[] C = new int[N];
 		
 		st = new StringTokenizer(br.readLine());
+		
 		for(int i=0; i<N; i++) {
 			nums[i] = Integer.parseInt(st.nextToken());
 		}
-		int ans = 0;
+		
+		int size = 0;
 		
 		for(int i=0; i<N; i++) {
-			int sum = 0;
-			for(int j=i; j<N; j++) {
-				sum += nums[j];
-				if(sum==M) ans++;
+			int idx = Arrays.binarySearch(C, 0, size, nums[i]);
+			
+			if(idx >= 0) continue;
+			else {
+				idx = Math.abs(idx) - 1;
+				C[idx] = nums[i];
+				if(size==idx)size++;
 			}
 		}
+		System.out.println(size);
 		
-		System.out.println(ans);
 	}
 }

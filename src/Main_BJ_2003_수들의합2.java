@@ -27,7 +27,6 @@ public class Main_BJ_2003_수들의합2 {
 			if(sum > M) {
 				sum -=nums[left];
 				left++;
-
 				if(left > right) {
 					right = left;
 					sum = nums[right];
