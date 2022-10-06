@@ -37,6 +37,7 @@ public class MaIn_BJ_14395_4연산 {
                 System.out.println(str);
                 return;
             }
+            
             if(x*x <= INF && x*x >= 0 && !check.contains(x*x)) {
                 queue.offer(x*x);
                 queueString.offer(str+"*");
