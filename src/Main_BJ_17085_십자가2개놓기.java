@@ -5,17 +5,6 @@ import java.util.StringTokenizer;
 public class Main_BJ_17085_십자가2개놓기 {
 	static int N, M;
 	static char[][] map;
-	static int[] dx = { -1, 0, 1, 0 };
-	static int[] dy = { 0, 1, 0, -1 };
-
-	static class Point {
-		int x, y;
-
-		Point(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
