@@ -48,28 +48,12 @@ public class Main_BJ_3197_백조의호수 {
 		}
 		
 		System.out.println(Arrays.deepToString(map));
-		System.out.println(cnt);
 		
 	}
 	private static void bfs(int x, int y) {
 		Queue<Point> queue = new ArrayDeque<>();
 		queue.offer(new Point(x,y));
 		visited[x][y] = true;
-		int qSize = queue.size();
-		while(!queue.isEmpty()) {
-			for(int i=0; i<qSize; i++) {
-				Point p = queue.poll();
-				
-				for(int d=0; d<4; d++) {
-					int nx = p.x + dx[d];
-					int ny = p.y + dy[d];
-					
-					if(nx>=0 && nx<R && ny>=0 && ny<C && !visited[nx][ny] && map[nx][ny]=='X') {
-						map[nx][ny] ='.';
-					}
-				}
-			}
-		}
 		
 	}
 }
