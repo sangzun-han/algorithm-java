@@ -32,20 +32,21 @@ public class Main_BJ_13904_과제 {
 			list.add(new Info(day, score));
 			last = Math.max(last, day);
 		}
-		
-		Collections.sort(list, (o1,o2) -> o2.day - o1.day);
-
 		int ans = 0;
-		int idx = 0;
-		PriorityQueue<Info> queue = new PriorityQueue<>();
-		
 		for(int i=last; i>0; i--) {
-			while(idx < N && list.get(idx).day >= i) {
-				queue.offer(list.get(idx));
+			Info info = new Info(0,0);
+			
+			for(Info inf: list) {
+				if(inf.day >= i && info.score < inf.score) {
+					info = inf;
+				}
 			}
-			if(!queue.isEmpty()) ans += queue.poll().score;
+			ans += info.score;
+			list.remove(info);
 		}
 		System.out.println(ans);
+
+
 		
 	}
 }	
